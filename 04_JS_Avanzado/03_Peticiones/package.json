@@ -1,0 +1,19 @@
+{
+  "name": "03_peticiones",
+  "version": "1.0.0",
+  "description": "peticiones",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "peticiones",
+    "mas",
+    "peticiones"
+  ],
+  "author": "Alejandro Ortega",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}

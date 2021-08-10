@@ -1,0 +1,22 @@
+{
+  "name": "04_js_avanzado",
+  "version": "1.0.0",
+  "description": "\"introduccion a NodeJS y NPM\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "polvorin15"
+  },
+  "keywords": [
+    "\"introduccion\"",
+    "\"nodejs\"",
+    "\"javascript\"",
+    "\"npm\""
+  ],
+  "author": "Alejandro Ortega",
+  "license": "ISC"
+}
