@@ -1,6 +1,12 @@
+import { Header, Main, Footer } from './components';
+
 function App() {
   return (
-    <h1>Hola desde App! 😂 </h1>
+    <>
+      <Header />
+      <Main />
+      <Footer />
+    </>
   );
 }
 
