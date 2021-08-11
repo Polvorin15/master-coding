@@ -1,0 +1,29 @@
+html{
+  font-family: sans-sans-serif;
+  font-size: 16px;
+}
+
+.title{
+  border-radius: 1rem;
+  width: 20vw;
+  border: 1px solid black;
+  margin: 1rem
+}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"> content="width=device-width,inicial-scale=1.0">
+    <meta http-equiv="X-UA-compatible"> content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Box Model</title>
+  </head>
+  <body>
+  header
+
+      <main>
+      <h1 class="title">
+        Box Model
+        </h1>
+    </main>
+      </body>
+</html>

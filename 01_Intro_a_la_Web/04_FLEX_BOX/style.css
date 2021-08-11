@@ -1,0 +1,33 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.general_cont {
+    width: 100vw;
+    height: 100vh;
+    background: gray;
+    display: grid;
+    /*  columnas de plantilla grid cada valor es una columna (ancho)   */
+    grid-template-columns: 20% 40% 40%;
+/*  filas de plantilla grid cada valor es una fila (alto)  */
+/*    grid-template-rows: 20% 20% 20% 20% 20%;*/
+    grid-template-rows: 8% repeat(4,1fr);
+    grid-gap: .5rem;
+}
+.header{
+    background:#3b5998;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.menu_left {
+    grid-row-start:2;
+    grid-row-end:6;
+    border:1px solid white;
+}
+.menu_right_top{
+}
+.menu_right_bottom{
+}
+central_content{
+}
