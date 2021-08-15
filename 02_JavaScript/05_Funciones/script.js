@@ -1,97 +1,122 @@
-console.log('Hola desde script.js 👋');
+console.log('Hola desde script.js! 👋');
 
-// FUNCIONES
-// Las funciones son un conjunto de instrucciones que podemos mandar a llamar cuando sean requeridas en determinado momento de nuestro código
+// JSON
+// JavaScript Object Notation
+// JSON es un formato de texto que se usa por excelencia para almacenar y/o compartir data entre cliente y servidor, entre programas en general
+// La extensión del archivo JSON es ".json"
+// El tipo de MIME (Multipurpose Internet Mail Extension) del formato JSON como "application/json"
 
-// Sintáxis básica
-// function miFuncion(){
-//   // Código a ejecutar
-// }
+// SINTÁXIS BÁSICA JSON
+// { "propiedad": "valor" }
 
-// Sintáxis de función con parámetros
-// function miFuncionConParametros(param1, param2, param3, ..., paramN){
-// // Código a ejecutar de la función
-// // Podemos acceder a param1, param2, param3, ..., paramN
-// }
-
-// Para mandar a llamar la función, tenemos que invocarla simplemente escribiendo su nombre, y en caso que lo requiera, pasarle los parámetros necesarios
-// miFuncion();
-// miFuncionConParametros('param1', 12312, true)
-
-function saludar(){
-  console.log('Hola desde la función saludar! 👋🛠');
+// Objeto de JavaScript
+let objetoPersona = {
+  nombre: 'Pedro',
+  edad: 27
 }
-saludar();
+console.log(objetoPersona);
 
-function saludarAlumno(alumno){
-  console.log('Hola, ' + alumno + ' desde la función saludarAlumno! 👋👩🏻‍🎓');
+// El mismo objeto en formato JSON
+let objetoPersonaJSON = {
+  "nombre": "Pedro",
+  "edad": 27
 }
-saludarAlumno('July');
-saludarAlumno('Alejandrina');
-saludarAlumno('Raúl');
-saludarAlumno('Max');
-saludarAlumno('Gabriela');
+console.log(objetoPersonaJSON); // JavaScript YA lo interpreta como un objeto
 
-// ARROW FUNCTIONS / FUNCIONES FLECHA
-// Sintáxis básica () => {}
-// Como buena práctica se sugiere declararlas como const
-// Las funciones flecha hacen la declaración de funciones más elegante ya que se pueden declarar en una sóla línea y evitar caracteres como ; y/o como {}
+// MÉTODOS JSON
+// JSON.parse(json) -> Convierte el formato JSON a un objeto literal de JS
+// JSON.stringify(objeto) -> Convierte un objeto literal de JS a formato JSON
 
-// Funcion tradicional
-function funcionTradicional(){
-  console.log('Hola desde función tradicional! 👋🛠');
+// Objeto literal de JS
+let mascota = {
+  nombre: 'Snoopy',
+  raza: 'Beagle',
+  estaVivo: true
 }
-funcionTradicional();
+console.log(mascota);
 
-// Función flecha
-const funcionFlecha = () => console.log('Hola desde función flecha! 👋🏹');
-funcionFlecha();
+// CONVERTIR OBJETO -> JSON
+let mascotaJSON = JSON.stringify(mascota);
+console.log(mascotaJSON);
 
-// Función flecha con parámetros
-const funcionFlechaConParametros = (param1, param2, param3) => {
-  console.log('Hola desde función flecha con paramétros! 👋🏹');
-  console.log(param1, param2, param3);
-}
-funcionFlechaConParametros('Este es el parámetro 1', 123123123123, { nombre: 'Parametro 3'});
+// CONVERTIR JSON -> OBJETO
+let mascotaJS = JSON.parse(mascotaJSON);
+console.log(mascotaJS);
 
-// EJEMPLO
-// Crear una función que reciba como parámetros dos números, e IMPRIMA EN CONSOLA la suma de los mismos
+// TIPOS DE DATOS VÁLIDOS EN JSON
+// string
+// number
+// object (contener valores de json válido)
+// arreglos
+// booleanos
+// null
 
-// Función tradicional
-function sumaDosNumeros(num1, num2){
-  console.log(num1 + num2);
-}
-sumaDosNumeros(10, 50); // 60
+// TIPOS DE DATOS NO VÁLIDOS EN JSON
+// funciones
+// fechas (en formatos específicos sí, pero no cómo lo harías con JS tradicional eg: new Date().getFullYear() esto marcaría error)
+// undefined
 
-// Funcion flecha
-const sumaDosNumerosFlecha = (num1, num2) => console.log(num1 + num2);
-sumaDosNumerosFlecha(10, 50) // 60
+// FETCH
+// El método fetch() nos permite hacer peticiones directamente desde el navegador
+// Este método nos regresa una PROMESA, es decir, una propiedad que tiene 3 estados: pendiente, resuelta, rechazada
 
+// SINTAXIS BÁSICA
+// fetch(url, opciones) // la url es a donde se hará la petición, las opciones es en caso de que queramos cambiar de método o agregar credenciales de acceso
+// .then(respuesta => {
+//   // manejamos la respuesta
+// })
+// .then(data => {
+//   // manejamos la data
+// })
+// .catch(error => {
+//   // manejamos el error
+// })
 
-// RETURN
-// Utilizamos la palabra reservada return para indicar dónde finaliza nuestra función y/o qué es lo que nos debe regresar/retornar
-// Todo lo que pongamos DESPUÉS del return, NO se va a ejecutar en el código
-// En las funciones flecha, si la declaración queda en una sóla línea, el return queda implícito, es decir, que no se necesita escribir
+// EJEMPLO TRAYENDO UN JSON LOCAL
+const JSON_LOCAL = 'usuarios.json';
 
-// EJEMPLO RETURN
-// Crear una función que reciba como parámetros dos números, y REGRESE la suma de los mismos
+fetch(JSON_LOCAL)
+  .then(response => {
+    console.log(response);
+    console.log(response.status);
+    return response.json();
+  })
+  .then(usuarios => {
+    console.log(usuarios);
+    // console.log(usuarios[0]);
+    // console.log(usuarios[1]);
 
-// Función tradicional
-function sumaDosReturn(num1, num2){
-  return num1 + num2
-}
-sumaDosReturn(10, 50) // Esto NO imprime en consola porque la función solamente retorna la suma, no la imprime en consola
-console.log(sumaDosReturn(10, 50)); // 60
-let suma = sumaDosReturn(10, 50);
-console.log(suma);
+    // Imprimiendo con un ciclo for
+    for (var i = 0; i < usuarios.length; i++) {
+      console.log(usuarios[i]);
+    }
 
-// Función flecha
-const sumaDosReturnFlecha = (num1, num2) => num1 + num2;
-sumaDosReturnFlecha(10, 50);
-console.log(sumaDosReturnFlecha(10, 50));
-let sumaFlecha = sumaDosReturnFlecha(10, 50);
-console.log(sumaFlecha);
+    // Imprimiendo con un forEach
+    usuarios.forEach(usuario => console.log(usuario));
+  })
+  .catch(error => {
+    console.log(error);
+  })
 
-// Mandar a llamar una función dentro de otra se manera simple
+// TRAYENDO UN JSON REMOTO CON FETCH
+const URL_POKEAPI = 'https://pokeapi.co/api/v2/pokemon';
+fetch(URL_POKEAPI)
+  .then(response => response.json())
+  .then(pokemones => pokemones.results.forEach(pokemon => console.log(`Hola soy ${pokemon.name}`)))
+  .catch(error => console.log(error))
+
+// También podemos traer y procesar texto con respuesta.text()
+const txtLocal = 'texto.txt';
+fetch(txtLocal)
+  .then(response => response.text())
+  .then(texto => console.log(texto))
+  .catch(error => console.log(error))
+
+// También podemos traer y procesar imágenes con respuesta.blob()
+const imgLocal = 'imagen.jpg';
+fetch(imgLocal)
+  .then(response => response.blob())
+  .then(imagen => console.log(imagen))
+  .catch(error => console.log(error))// Mandar a llamar una función dentro de otra se manera simple
 const imprimirEnConsola = (valor) => console.log(valor);
 imprimirEnConsola(sumaDosReturnFlecha(10, 50));

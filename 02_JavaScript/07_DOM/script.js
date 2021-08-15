@@ -1,56 +1,51 @@
-console.log('Hola desde script.js! 👋');
+console.log('Hola desde Reto Pizza! 🍕');
 
-// DOM: DOCUMENT OBJECT MODEL
-// Hace referencia a todo el HTML como un objeto en sí mismo al que podemos acceder para crear, agregar, modificar, remover o alterar de cualquier forma desde JavaScript
+//-------------------> Challenge <------------------
+// * Usar Bootstrap *
+// Preguntar Nombre
+// Preguntar Dirección
+// Preguntar Teléfono
+// Preguntar si quieren pizza con piña o sin
+// respuestas: sí o no
+// -> mostrar las respuestas en una card de Bootstrap después de presionar un botón
 
-// Esto imprime todo el HTML donde fue declarado nuestro JS
-// Ya nos permite acceder a ese documento como un gran objeto que contiene todo nuestra página
-console.log(document);
+// 1: Declarar los elementos que vamos a usar del html (getElementById('id') es una forma)
+// 2: Declarar la función que generará la card con las respuestas
+// 3: Agregar el event listener al botón de ordenar para que cuando se le haga click ejecute la función declarada en el paso 2
 
-// MÉTODOS DE INTERACCIÓN CON EL DOM
-// Para manipular el DOM, primero tenemos que mandar a llamar los elementos queremos utilizar desde JS
-// Podemos hacer uso de diferentes métodos, ya sea para llamar por etiqueta, por clase, por selector o por id
-// Traer elementos por id -> document.getElementById(id)
-// Traer elementos por etiqueta -> document.getElementsByTagName(name)
-// Traer elementos por clase -> document.getElementsByClassName(name)
-// Traer elementos por selector -> document.querySelector(selector)
-// Traer TODOS los elementos con el mismo selector -> document.querySelectorAll(selector)
-// Más información sobre los métodos de JS: https://www.w3schools.com/js/js_htmldom_methods.asp
+// PUNTOS EXTRA!! :)
+// * Condicionar que todos los inputs deban ser llenados para que se despliegue la card
+// * Cambiar la imagen a la card una para la pizza con piña y otra para la pizza sin piña
+// * Evitar que la respuesta de la piña se escriba en mayúscula o cambiar por checkbox o radio button
 
-const titulo = document.getElementById('titulo');
-const subtitulo = document.getElementById('subtitulo');
-const entrada = document.getElementById('entrada');
+// PASOS SUGERIDOS
+// 1: Declarar los elementos que vamos a usar del html (getElementById('id') es una forma)
+
+// INPUTS
+const nombre = document.getElementById('nombre');
+const direccion = document.getElementById('direccion');
+const telefono = document.getElementById('telefono');
+const pina = document.getElementById('pina');
 const boton = document.getElementById('boton');
-const respuesta = document.getElementById('respuesta');
 
-// Podemos imprimir en consola las variables que almacenan los objetos del DOM para validar que las llamamos adecuadamente
-console.log(titulo, subtitulo, entrada, boton, respuesta);
+// 2: Declarar la función que generará la card con las respuestas
+const generarOrden = () => {
 
-// Creamos una función que maneje los cambios que queremos al interactuar con nuestro sitio de determinada forma
-const handleClick = () => {
-  console.log('Has presionado click en el botón cambiar! 🖲')
-
-  if(entrada.value === '') {
-    alert('Debes ingresar un valor en el input')
+  // Validar que ningún campo esté vacío
+  if (nombre.value === '' || direccion.value === '' || telefono.value === '') {
+    alert('El campo de nombre está vacío')
+  } else if (pina.checked) {
+    // window.location.href hace referencia a la dirección web o URL
+    // Colocamos en la url la dirección del nuevo html y le concatenamos los valores de los inputs como parámetros en la url
+    // Los parámetros inician con el caracter de interrogación (?) se declaran con igual (=) se separan con y/ampersand (&)
+    window.location.href = 'pedido.html?nombre=' + nombre.value + '&direccion=' + direccion.value + '&telefono=' + telefono.value + '&pina=' + true;
   } else {
-    // Podemos cambiar propiedades de los elementos de HTML como su texto interior (innerHTML)
-    titulo.innerHTML = 'Soy el título cambiado desde JS 👋';
-    subtitulo.innerHTML = 'Soy el subtítulo cambiado desde JS 🤯';
-
-    // Podemos cambiar estilos CSS
-    titulo.style.color = 'red';
-    subtitulo.style.fontSize = '30px';
-
-    // Podemos acceder al valor que se escribe dentro de un input
-    console.log(entrada.value);
-
-    respuesta.innerHTML = entrada.value
-    respuesta.style.color = 'blue';
-    respuesta.style.fontSize = '40px';
+    window.location.href = 'pedido.html?nombre=' + nombre.value + '&direccion=' + direccion.value + '&telefono=' + telefono.value + '&pina=' + false;
   }
 
-};
+  console.log('Orden generada');
 
-// MANEJAR EVENTOS
-// Podemos escuchar todos los eventos que suceden en nuestro sitio, desde un scroll, un mouseover, mouseout, click, etc
-boton.addEventListener('click', handleClick);
+}
+
+// 3: Agregar el event listener al botón de ordenar para que cuando se le haga click ejecute la función declarada en el paso 2
+boton.addEventListener('click', generarOrden);
