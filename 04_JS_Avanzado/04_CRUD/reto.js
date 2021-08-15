@@ -26,7 +26,7 @@ const createAuthor = (name, last_name, nacionality, biography, gender, age) => {
     console.log('Creando autor...');
     if(res.statusCode === 201){
       console.log(JSON.parse(body));
-      updateAuthor(JSON.parse(body).id, 'Alexander', 'Monday', 'USA', 'Student', 'M', 42);
+      updateAuthor(JSON.parse(body).id, 'Pedrini', 'Gonzalezco', 'USA', 'Chavito cool', 'M', 27);
     } else console.log(res.statusCode, err, JSON.parse(body));
   });
 }
@@ -76,4 +76,4 @@ const deleteAuthor = (id) => {
   });
 }
 
-createAuthor('Alejandro', 'Ortega', 'MX', 'Estudiante', 'M', 42);
+createAuthor('Pedro', 'González', 'MX', 'Chavito bien', 'M', 27);

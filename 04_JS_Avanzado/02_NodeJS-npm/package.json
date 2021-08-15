@@ -1,22 +1,18 @@
 {
-  "name": "04_js_avanzado",
+  "name": "02_nodejs-npm",
   "version": "1.0.0",
-  "description": "\"introduccion a NodeJS y NPM\"",
+  "description": "Introducción a NodeJS y NPM",
   "main": "index.js",
   "scripts": {
-    "start": "",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "polvorin15"
-  },
   "keywords": [
-    "\"introduccion\"",
-    "\"nodejs\"",
-    "\"javascript\"",
-    "\"npm\""
+    "introduccion",
+    "nodejs",
+    "javascript",
+    "npm"
   ],
-  "author": "Alejandro Ortega",
+  "author": "Pedro A. González",
   "license": "ISC"
 }

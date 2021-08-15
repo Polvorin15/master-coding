@@ -124,7 +124,7 @@ const cicloDeVidaAutor = async (name, last_name, nacionalidad, biography, gender
   try {
     const autorCreado = await createAuthor(name, last_name, nacionalidad, biography, gender, age);
     console.log(autorCreado);
-    const autorActualizado = await updateAuthor(autorCreado.id, 'Alexander', 'Monday', 'USA', 'Student', 'M', 42)
+    const autorActualizado = await updateAuthor(autorCreado.id, 'Pedrini', 'Gonzálezco', 'USA', 'Chavito cool', 'M', 27)
     console.log(autorActualizado);
     const autorLeido = await readOneAuthor(autorActualizado.id)
     console.log(autorLeido);
@@ -135,4 +135,4 @@ const cicloDeVidaAutor = async (name, last_name, nacionalidad, biography, gender
   }
 }
 
-cicloDeVidaAutor('Alejandro', 'Ortega', 'MX', 'Estudiante', 'M', 42);
+cicloDeVidaAutor('Pedro', 'González', 'MX', 'Chavito bien', 'M', 27);

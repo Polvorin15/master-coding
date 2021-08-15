@@ -60,4 +60,3 @@ respuestaPromesaRandom()
 
 // OPERADOR TERNARIO
 // condicion ? si es true pasa esto : si es false pasa esto;
-})
